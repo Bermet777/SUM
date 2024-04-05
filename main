@@ -1,0 +1,32 @@
+0000000000400530 <reverse_array>:
+  400530:       55                      push   %rbp
+  400531:       48 89 e5                mov    %rsp,%rbp
+  400534:       89 d0                   mov    %edx,%eax
+  400536:       48 89 f8                mov    %rdi,%rax
+  400539:       48 83 f8 01             cmp    $0x1,%rax
+  40053d:       7e 1a                   jle    400559
+  40053f:       48 c7 c0 00 00 00 00    mov    $0x0,%rax
+  400546:       48 89 c1                mov    %rax,%rcx
+  400549:       48 8b 5c 24 08          mov    0x8(%rsp),%rbx
+  40054e:       dec    %rbx
+  40054f:       eb 13                   jmp    400564
+  400551:       8b 04 3d 00 00 00 00    mov    0x0(%rip),%eax    # 400558 <reverse_array+0x28>
+  400558:       8b 54 24 0c             mov    0xc(%rsp),%edx
+  40055c:       8b 4c 24 10             mov    0x10(%rsp),%ecx
+  400560:       89 14 3d 00 00 00 00    mov    %edx,0x0(%rip)    # 400567 <reverse_array+0x37>
+  400567:       89 0c 3d 00 00 00 00    mov    %ecx,0x0(%rip)    # 400574 <reverse_array+0x44>
+  40056e:       01 04 3d 00 00 00 00    add    %eax,0x0(%rip)    # 400575 <reverse_array+0x45>
+  400575:       89 d0                   mov    %edx,%eax
+  400577:       01 14 3d 00 00 00 00    add    %edx,0x0(%rip)    # 400584 <reverse_array+0x54>
+  40057e:       89 c8                   mov    %ecx,%eax
+  400580:       29 c2                   sub    %edx,%eax
+  400582:       77 0d                   ja     400591
+  400584:       48 83 c0 04             add    $0x4,%rax
+  400588:       48 39 c8                cmp    %rcx,%rax
+  40058b:       76 c6                   jbe    400553
+  40058d:       48 83 c0 04             add    $0x4,%rax
+  400591:       48 39 c8                cmp    %rcx,%rax
+  400594:       7f b3                   jg     400549
+  400596:       90                      nop
+  400597:       5d                      pop    %rbp
+  400598:       c3                      retq
